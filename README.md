@@ -11,14 +11,22 @@ The file contains exercises 2.1--2.7.
 The answers to exercise 2.1 are given as an example of how to include
 answers in RMarkdown.
 
-The other exercises have templates for you to fill in your answers with 
-R code and Markdown.
-
 * Graduate students should answer all of the exercises. 
 * Undergraduates should answer exercises 2.2, 2.4, 2.5, and 2.7.
 
-When you are done, compile your .Rmd file into a PDF file and submit the 
-completed .Rmd and .pdf files to github by the end of the day on Friday Sept. 1.
+## Instructions:
+
+* Clone a local copy of the file repository from github.
+* In your local repository, answer the exercises in the template
+  `Lab_01_Activities.Rmd`.
+* When you are done, knit your `.Rmd` file into a PDF file.
+* Use git to commit your changes (including the edits to `Lab_01_Activities.Rmd`
+  and the new PDF file) to your local git repository.
+* Push the changes from your local git repository to github.
+
+    The last changes that you push before the due date (end of the day on Friday 
+    Sept. 1) will be graded.
 
 I advise using git to commit changes frequently as you work and push those commits
 to github.
+
