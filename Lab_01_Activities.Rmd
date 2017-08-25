@@ -2,7 +2,7 @@
 title: "EES 3310/5310 Lab #1"
 subtitle: "Exercises from Chapters 2 and 3"
 author: "put your name here"
-date: "Lab: Monday Aug. 28, 2017. Due: Friday, Sept. 1."
+date: "Lab: Monday Aug. 28, 2017. Due: Friday, Sept. 1 at 9:00 AM"
 output:
   pdf_document: default
   html_document: default
@@ -33,9 +33,8 @@ source("scripts/format_md.R")
   and the new PDF file) to your local git repository.
 * Push the changes from your local git repository to github.
 
-    The last changes that you push before the due date (end of the day on 
-    Friday Sept. 1) will be graded.
-
+    The last changes that you push before the due date (Friday 
+    Sept. 1 at 9:00 am) will be graded.
 
 I advise using git to commit changes frequently as you work and push those commits
 to github.
