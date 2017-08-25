@@ -2,7 +2,7 @@
 title: "EES 3310/5310 Lab #1"
 subtitle: "Exercises from Chapters 2 and 3"
 author: "put your name here"
-date: "Lab: Moneday August 28, 2017"
+date: "Lab: Monday Aug. 28, 2017. Due: Friday, Sept. 1."
 output:
   pdf_document: default
   html_document: default
@@ -23,6 +23,15 @@ library(stringr)
 
 source("scripts/format_md.R")
 ```
+# Instructions:
+
+* Clone a local copy of the repository from github,
+* In your local repository, edit `Lab_01_Activities.Rmd` to answer the questions
+  in the exercises,
+* knit `Lab_01_Activities.Rmd` into a PDF file,
+* commit your changes to the local repository, including the edits to the Rmd file
+  and the new PDF file,
+* and push the changes from your local repository to the master repository at github.
 
 # Exercises from Chapter 2
 
