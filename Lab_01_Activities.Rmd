@@ -2,10 +2,10 @@
 title: "EES 3310/5310 Lab #1"
 subtitle: "Exercises from Chapters 2 and 3"
 author: "put your name here"
-date: "August 28, 2017"
+date: "Lab: Moneday August 28, 2017"
 output:
-  html_document: default
   pdf_document: default
+  html_document: default
   github_document: default
 ---
 
@@ -16,13 +16,12 @@ knitr::opts_chunk$set(echo = TRUE)
 ```
 ```{r initialize, include=FALSE}
 # This section loads necessary R libraries and sources scripts that define 
-# useful functions format_md and make_layer_diagram.
+# useful functions format_md.
 # 
 library(tidyverse)
 library(stringr)
 
 source("scripts/format_md.R")
-source("scripts/layer_diagram.R")
 ```
 
 # Exercises from Chapter 2
@@ -212,7 +211,7 @@ so to get `r format_md(joules_per_day, digits = 1)` joules of electricity to pow
 ## Exercise 2.7
 
 > Infrared light has a wavelength of about 10 $\mu$m. What is its wave number in
-> cm^−1^?
+> cm^-1^?
 
 ```{r ex_2_7_a}
 # Put your R code here to answer the question
@@ -233,184 +232,6 @@ so to get `r format_md(joules_per_day, digits = 1)` joules of electricity to pow
 
 ```{r ex_2_7_c}
 # Put your R code here to answer the question
-```
-
-**Answer:** put your answer here ...
-
-
-# Exercises from Chapter 3
-
-For the following exercises, use the following numbers:
-
-* I~solar~ = 1350 W/m^2^
-* $\sigma = 5.67 \times 10^{-8}$
-* $\alpha = 0.30$
-* $\varepsilon = 1.0$
-
-```{r layer_model_constants}
-I_solar = 1350
-alpha = 0.30
-sigma = 5.67E-8
-epsilon = 1
-```
-
-## Worked Example for One-Layer Atmosphere
-
-> **A One-Layer Model.** 
-
-```{r one_layer_figure, fig.cap = "An energy diagram for a planet with one pane of glass for an atmosphere. The intensity of heat from visible light is $(1 - \\alpha) I_{solar} / 4$."}
-make_layer_diagram(1)
-```
-
-> a) Write the energy budgets for the atmospheric layer, for the ground, and for
-> the Earth as a whole.
-
-**Answer:** Start at the top, at the boundary to sapce, and work downward:
-
-* At the boundary to space, $I_{1,up} = (1 - \alpha) I_{solar} / 4$.
-
-* At the atmospheric layer, $I_{1,up} + I_{1,down} = I_{ground,up}$
-
-* At the ground, $(1 - \alpha) I_{solar} + I_{1,down} = I_{ground,up}$
-
-We also know that
-
-* $I_{1,up} = I_{1,down} = \varepsilon \sigma T_{1}^4$
-
-* $I_{ground,up} = \sigma T_{ground}^4$
-
-
-> b) Manipulate the budget for the Earth as a whole to obtain the temperature 
-> T~1~ of the atmospheric layer. Does this part of the exercise seem familiar in 
-> any way? Does the term ring any bells?
-
-**Answer:** 
-
-$$(1 - \alpha) I_{solar} / 4 = I_{1,up} = \sigma T_{1}^4$$
-
-$$(1 - \alpha) I_{solar} / 4 \varepsilon \sigma = T_{1}^4$$
-
-$$T_{1} = \sqrt[4]{\frac{(1 - \alpha) I_{solar}}{4 \varepsilon \sigma}}$$
-
-This is familiar, because it's the same as the formula for the bare-rock temperature.
-
-```{r layer_1_temperature}
-I_1_up = (1 - alpha) * I_solar / 4
-T_1 = (I_1_up / (epsilon * sigma))^0.25
-```
-
-From the algebraic solution, we expect T~1~ to be `r format_md(((1 - alpha) * I_solar / (4 * epsilon * sigma))^0.25, digits = 3)` K.
-From the R code above, we get T~1~ = `r format_md(T_1, digits = 3)` K.
-
-> c) Now insert the value you found for T~1~ into the budget for atmospheric 
-> layer 1 to obtain the temperature of the ground, T~ground~.
-
-**Answer:** 
-
-* $I_{ground} = I_{1,up} + I_{1,down} = 2 \times I_{1,up}$
-* $\varepsilon \sigma T_{ground}^4 = 2 \varepsilon \sigma T_{1}^4$
-* $T_{ground}^4 = 2 T_{1}^4$
-* $T_{ground} = \sqrt[4]{2} \times T_{1}$
-
-```{r ground_temperature}
-I_1_down = I_1_up
-I_ground = I_1_up + I_1_down
-T_ground = (I_ground / (epsilon * sigma))^0.25
-```
-
-From the algebraic solution, we get T~ground~ = `r format_md(2^0.25 * T_1, digits = 3)` K and from the R code above, we get T~ground~ = `r format_md(T_ground, digits = 3)` K.
-
-
-## Exercise 3.1 (Grad. students only)
-
-> **The moon with no heat transport.** The Layer Model assumes that the 
-> temperature of the body in space is all the same. This is not really very 
-> accurate, as you know that it is colder at the poles than it is at the equator. 
-> For a bare rock with no atmosphere or ocean, like the moon, the situation is 
-> even worse because fluids like air and water are how heat is carried around on
-> the planet. So let us make the other extreme assumption, that there is no heat 
-> transport on a bare rock like the moon. Assume for comparability that the 
-> albedo of this world is 0.30, same as Earth’s. 
->
-> What is the equilibrium temperature of the surface of the moon, on the equator, 
-> at local noon, when the sun is directly overhead? (Hint: First figure out the 
-> intensity of the local solar radiation I~solar~)
-
-```{r ex_3_1_a}
-# Put your R code here to answer the question
-```
-
-**Answer:** put your answer here ...
-
-> What is the equilibrium temperature on the dark side of the moon?
-
-```{r ex_3_1_b}
-# Put your R code here to answer the question
-```
-
-**Answer:** put your answer here ...
-
-## Exercise 3.2
-
-> **A Two-Layer Model.** Insert another atmospheric layer into the model, just 
-> like the first one. The layer is transparent to visible light but a blackbody 
-> for infrared.
-
-```{r two_layer_figure, fig.cap = "An energy diagram for a planet with two panes of glass for an atmosphere. The intensity of absorbed visible light is $(1 - \\alpha) I_{solar} / 4$."}
-make_layer_diagram(2)
-```
-
-> a) Write the energy budgets for both atmospheric layers, for the ground, and 
-> for the Earth as a whole, like we did for the One-Layer Model.
-
-**Answer:** put your energy budgets here...
-
-> b) Manipulate the budget for the Earth as a whole to obtain the temperature 
-> T~2~ of the top atmospheric layer, labeled Atmospheric Layer 2 in the figure 
-> above. Does this part of the exercise seem familiar in any way? Does the term 
-> ring any bells?
-
-```{r ex_3_2_b}
-# Put your R code here to answer the question
-```
-
-**Answer:** put the temperature T~2~ here...
-
-> c) Insert the value you found for T~2~ into the energy budget for layer 2, and 
-> solve for the temperature of layer 1 in terms of layer 2. How much bigger is 
-> T~1~ than T~2~?
-
-```{r ex_3_2_c}
-# Put your R code here to answer the question
-```
-
-**Answer:** put the temperature T~1~ here....
-
-> d) Now insert the value you found for T~1~ into the budget for atmospheric 
-> layer 1 to obtain the temperature of the ground, T~ground~. Is the greenhouse 
-> effect stronger or weaker because of the second layer?
-
-```{r ex_3_2_d}
-# Put your R code here to answer the question
-```
-
-**Answer:** put your answer here...
-
-## Exercise 3.3
-
-```{r nuclear_winter_diagram, fig.cap="An energy diagram for a planet with an opaque pane of glass for an atmosphere. The intensity of absorbed visible light is $(1 - \\alpha) I_{solar} / 4$."}
-make_nuclear_winter_diagram()
-```
-
-> **Nuclear Winter.** Let us go back to the One-Layer Model but change it so 
-> that the atmospheric layer absorbs visible light rather than allowing it to 
-> pass through (See the figure above). This could happen if the upper atmosphere 
-> were filled with dust. For simplicity, assume that the albedo of the Earth 
-> remains the same, even though in the real world it might change with a dusty 
-> atmosphere.>  What is the temperature of the ground in this case?
-
-```{r ex_3_3}
-# Put your R code here to answer this question.
 ```
 
 **Answer:** put your answer here ...
