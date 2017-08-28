@@ -1,6 +1,6 @@
 ---
 title: "EES 3310/5310 Lab #1"
-subtitle: "Exercises from Chapters 2 and 3"
+subtitle: "Exercises from Chapter 2"
 author: "put your name here"
 date: "Lab: Monday Aug. 28, 2017. Due: Friday, Sept. 1 at 9:00 AM"
 output:
