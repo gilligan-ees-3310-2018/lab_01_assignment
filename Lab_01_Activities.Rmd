@@ -2,7 +2,9 @@
 title: "EES 3310/5310 Lab #1"
 subtitle: "Exercises from Chapter 2"
 author: "put your name here"
-date: "Lab: Monday Aug. 28, 2017. Due: Friday, Sept. 1 at 9:00 AM"
+date: "Lab: Monday Aug. 27, 2017. Due: Monday Sept. 3 at 9:00 AM"
+fontfamily: "newtxtext,newtxmath"
+fontsize: "12pt"
 output:
   pdf_document: default
   html_document: default
@@ -43,7 +45,12 @@ to github.
 
 # Exercises from Chapter 2
 
+**_I have worked Exercise 2.1 as an example to show you how you can use 
+RMarkdown to solve problems and write up the answers. 
+You will solve the other exercises for the lab using the same methods._**
+
 ## Exercise 2.1
+
 
 Consider exercise 1 in Chapter 2, on p. 17 of our textbook, 
 _Global Warming: Understanding the Forecast_:
@@ -67,11 +74,18 @@ It can be hard to read a long number like that, so we can use R's format command
 format_md(joules_per_day, comma = TRUE)
 ```
 
+Or if you want to express that in scientific notation, you can do this:
+```{r scientific_formatting_example, results="asis"}
+format_md(joules_per_day, digits = 3, format = "scientific")
+```
+
 **Answer:** A `r light_bulb_power` watt light bulb burns `r light_bulb_power` Joules per second, 
 so the light bulb burns `r light_bulb_power * seconds_per_hour` Joules per hour and
 `r joules_per_day` Joules per day.
 
-> Burning coal yields about 30 &times; 10^6^ J of energy per kilogram of coal burned. 
+> Burning coal yields about 
+> `r format_md(30.E+6, digits = 1, format = "engineering")` J of energy per 
+> kilogram of coal burned. 
 > Assuming that the coal power plant is 30% efficient,
 > how much coal has to be burned to light that light bulb for one day?
 
@@ -85,9 +99,9 @@ kg_coal_per_day = joules_per_day * kg_coal_per_joule_electricity
 kg_coal_per_day
 ```
 
-**Answer:** 1 kilogram of coal produces `r format_md(joules_heat_per_kg_coal, digits = 1)` joules of heat, which is converted into `r format_md(joules_electricity_per_kg_coal, digits = 1)` joules of electricity.
-We can turn this around and figure that to get 1 joule of electricity takes 1 / (`r format_md(joules_electricity_per_kg_coal, digits = 1)`) = `r format_md(kg_coal_per_joule_electricity, digits = 1)` kg of coal,
-so to get `r format_md(joules_per_day, digits = 1)` joules of electricity to power the light bulb for one day takes `r format_md(kg_coal_per_day, digits = 2)` kg of coal.
+**Answer:** 1 kilogram of coal produces `r format_md(joules_heat_per_kg_coal, digits = 1, comma = TRUE)` joules of heat, which is converted into `r format_md(joules_electricity_per_kg_coal, digits = 1, comma = TRUE)` joules of electricity.
+We can turn this around and figure that to get 1 joule of electricity takes 1 / (`r format_md(joules_electricity_per_kg_coal, digits = 1, comma = TRUE)`) = `r format_md(kg_coal_per_joule_electricity, digits = 1, format = "scientific")` kg of coal,
+so to get `r format_md(joules_per_day, digits = 1, comma = TRUE)` joules of electricity to power the light bulb for one day takes `r format_md(kg_coal_per_day, digits = 2, comma = TRUE)` kg of coal.
 
 ## Exercise 2.2
 
