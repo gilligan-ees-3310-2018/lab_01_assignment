@@ -6,7 +6,7 @@ The file `Lab_01_Activities.Rmd` is a template for the exercises in Lab #1 to us
 RMarkdown to do the following exercises from Chapter 2 in the textbook 
 _Global Warming: Understanding the Forecast_.
 
-The lab is due at 9:00 AM on Friday Sept. 1.
+The lab is due at 9:00 AM on Monday, Sept. 3.
 
 The file contains exercises 2.1--2.7.
 
@@ -26,8 +26,8 @@ answers in RMarkdown.
   and the new PDF file) to your local git repository.
 * Push the changes from your local git repository to github.
 
-    The last changes that you push before the due date (Friday 
-    Sept. 1 at 9:00 am) will be graded.
+    The last changes that you push before the due date 
+    (Monday Sept. 3 at 9:00 am) will be graded.
 
 I advise using git to commit changes frequently as you work and push those commits
 to github.

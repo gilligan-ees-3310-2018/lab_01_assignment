@@ -2,7 +2,7 @@
 title: "EES 3310/5310 Lab #1"
 subtitle: "Exercises from Chapter 2"
 author: "put your name here"
-date: "Lab: Monday Aug. 27, 2017. Due: Monday Sept. 3 at 9:00 AM"
+date: "Lab: Monday Aug. 27, 2018. Due: Monday Sept. 3 at 9:00 AM"
 fontfamily: "newtxtext,newtxmath"
 fontsize: "12pt"
 output:
@@ -23,7 +23,7 @@ knitr::opts_chunk$set(echo = TRUE)
 library(tidyverse)
 library(stringr)
 
-source("scripts/format_md.R")
+source("_scripts/format_md.R")
 ```
 # Instructions:
 
